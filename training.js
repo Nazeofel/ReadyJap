@@ -132,7 +132,7 @@ function setSymbolCorrectness(symbolContainer, correctness) {
 
 async function clearAndLoadData() {
   container.innerHTML = "Loading symbols...";
-  const trainingData = await LoadTrainingData("hiragana");
+  const trainingData = await LoadTrainingData("hirigana");
   if (trainingSet !== undefined) {
     ClearTrainingContext(trainingSet[2]);
   }
