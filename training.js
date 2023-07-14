@@ -1,6 +1,8 @@
 let correct = 0;
 let bad = 0;
 let trainingSet;
+const container = document.querySelector("#training-container");
+
 function GetArrayOfRangedNumber(mininclusive, maxexclusive) {
   let r = [];
   for (let i = mininclusive; i < maxexclusive; i++) {
@@ -10,6 +12,10 @@ function GetArrayOfRangedNumber(mininclusive, maxexclusive) {
 }
 
 function GenerateTraining(dataset, length, errset = [], errPower = 5) {
+  if (dataset.symbol === undefined) {
+    return (container.innerHTML =
+      "An error occured while fetching the symbols");
+  }
   let shuffleList = GetArrayOfRangedNumber(0, dataset.symbol.length);
   if (errset.length > 0) {
     for (let i = 0; i < errPower; i++) {
@@ -92,12 +98,16 @@ function ClearTrainingContext(symbolContainerList) {
   }
 }
 
-function LoadTrainingData(type) {
-  return new Promise((resolve, reject) => {
-    $.get(`content/${type}.json`, (data) => {
-      resolve(data);
-    });
-  });
+async function LoadTrainingData(type) {
+  let json = null;
+  try {
+    const res = await fetch(`content/${type}.json`);
+    const data = await res.json();
+    json = data;
+  } catch (e) {
+    container.innerHTML = e.message;
+  }
+  return json;
 }
 
 function InstanciateSymbol(symbol) {
@@ -120,12 +130,13 @@ function setSymbolCorrectness(symbolContainer, correctness) {
     : symbolContainer.classList.add("wrong-answer");
 }
 
-function clearAndLoadData() {
-  LoadTrainingData("hiragana").then((hiragana) => {
-    if (trainingSet !== undefined) {
-      ClearTrainingContext(trainingSet[2]);
-    }
-    trainingSet = GenerateTraining(hiragana, 48);
-    StartListening(trainingSet);
-  });
+async function clearAndLoadData() {
+  container.innerHTML = "Loading symbols...";
+  const trainingData = await LoadTrainingData("hiragana");
+  if (trainingSet !== undefined) {
+    ClearTrainingContext(trainingSet[2]);
+  }
+  container.innerHTML = "";
+  trainingSet = GenerateTraining(trainingData, 48);
+  StartListening(trainingSet);
 }
