@@ -9,7 +9,7 @@
       integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
       crossorigin="anonymous"
     ></script>
-    <script type="text/javascript" src="training.js"></script>
+    <script type="text/javascript" src="training.js" defer></script>
   </head>
   <body>
     <div id="training-board" class="blog-shadow-dreamy">
@@ -34,7 +34,9 @@
       </div>
     </div>
     <script type="text/javascript" defer>
-      clearAndLoadData();
+      window.addEventListener("DOMContentLoaded", () => {
+        clearAndLoadData();
+      });
     </script>
   </body>
 </html>
