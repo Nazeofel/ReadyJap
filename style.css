@@ -1,128 +1,140 @@
 :root {
-    --main-bg-color: #181a1b;
-    --main-text-color: #e8e6e3;
+  --main-bg-color: #181a1b;
+  --main-text-color: #e8e6e3;
 
-    --symbol-container-great-color: #3f8339;
-    --symbol-container-great-outline-color: #58af50;
+  --symbol-container-great-color: #3f8339;
+  --symbol-container-great-outline-color: #58af50;
 
-    --symbol-container-bad-color: #833939;
-    --symbol-container-bad-outline-color: #af5050;
+  --symbol-container-bad-color: #833939;
+  --symbol-container-bad-outline-color: #af5050;
 
-    --symbol-container-neutral-color: #4b4b4b;
-    --symbol-container-neutral-outline-color: #727272;
+  --symbol-container-neutral-color: #4b4b4b;
+  --symbol-container-neutral-outline-color: #727272;
 }
 
 .blog-shadow-dreamy {
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 body {
-    background-color: var(--main-bg-color);
-    color: var(--main-text-color);
+  background-color: var(--main-bg-color);
+  color: var(--main-text-color);
 }
 
 .training-symbol-container {
-    width: 50px;
-    max-width: 50px;
-    height: 50px;
-    max-height: 50px;
-    text-align: center;
-    margin: 3px;
-    display: inline-block;
-    border: dashed 1px gray;
-    border-bottom: solid 3px;
-    border-radius: 5px;
+  width: 50px;
+  max-width: 50px;
+  height: 50px;
+  max-height: 50px;
+  text-align: center;
+  margin: 3px;
+  display: inline-block;
+  border: dashed 1px gray;
+  border-bottom: solid 3px;
+  border-radius: 5px;
+  border-bottom-color: var(--symbol-container-neutral-outline-color);
+  background-color: var(--symbol-container-neutral-color);
 }
 
 .training-symbol {
-    font-size:30px;
-    margin: 0%;
-    transform:translateY(5px);
+  font-size: 30px;
+  margin: 0%;
+  transform: translateY(5px);
 }
 
 .board-text-container {
-    padding: 10px;
+  padding: 10px;
 }
 
 .board-text {
-    font-size: 30px;
-    font-family: Arial;
+  font-size: 30px;
+  font-family: Arial;
 }
 
 #correct-counter {
-    color: #5ea05e;
+  color: #5ea05e;
 }
 
 #bad-counter {
-    color: #a75a5a;
+  color: #a75a5a;
 }
 
 #last-symbol {
-    font-size: 70px;
-    font-family: Arial;
-    margin-top: 20px;
-    margin-bottom: 50px;
+  font-size: 70px;
+  font-family: Arial;
+  margin-top: 20px;
+  margin-bottom: 50px;
 }
 
 #last-transcription {
-    font-size: 30px;
-    font-family: Arial;
-    margin-top: 0px;
+  font-size: 30px;
+  font-family: Arial;
+  margin-top: 0px;
 }
 
 #training-context {
-    width: 482px;
-    max-width: 482px;
-    height: 484px;
-    max-height: 484px;
-    margin: auto;
-    margin-top: 45vh;
-    transform: translateY(-50%);
-    padding: 4px;
-    border-radius: 10px;
+  width: 482px;
+  max-width: 482px;
+  height: 484px;
+  max-height: 484px;
+  margin: auto;
+  margin-top: 45vh;
+  transform: translateY(-50%);
+  padding: 4px;
+  border-radius: 10px;
 }
 
 #training-board {
-    width: 250px;
-    max-width: 250px;
-    height: 484px;
-    max-height: 484px;
-    padding: 4px;
-    border-radius: 10px;
-    position: fixed;
-    margin-left: -550px;
-    transform: translateY(-50%);
-    left: 50%;
-    float: left;
+  width: 250px;
+  max-width: 250px;
+  height: 484px;
+  max-height: 484px;
+  padding: 4px;
+  border-radius: 10px;
+  position: fixed;
+  margin-left: -550px;
+  transform: translateY(-50%);
+  left: 50%;
+  float: left;
 }
 
 #training-last {
-    width: 80%;
-    height: 50%;
-    border: dashed black 1px;
-    margin: auto;
-    text-align: center;
+  width: 80%;
+  height: 50%;
+  border: dashed black 1px;
+  margin: auto;
+  text-align: center;
 }
 
 #training-container {
-    margin: 5px;
-    padding: 3px;
-    width: 100% - 5px;
-    height: 75%;
-    border: dashed black 1px;
+  margin: 5px;
+  padding: 3px;
+  width: 100% - 5px;
+  height: 75%;
+  border: dashed black 1px;
 }
 
 #training-interactive {
-    margin: 5px;
-    padding: 3px;
-    width: 100% - 5px;
-    height: 18%;
-    border: dashed black 1px;
+  margin: 5px;
+  padding: 3px;
+  width: 100% - 5px;
+  height: 18%;
+  border: dashed black 1px;
 }
 
 #training-input {
-    display: block;
-    margin: auto;
-    margin-top: 10px;
-    width: 80%;
+  display: block;
+  margin: auto;
+  margin-top: 10px;
+  width: 80%;
+}
+
+.wrong-answer {
+  border-bottom-color: var(--symbol-container-bad-outline-color);
+  background-color: var(--symbol-container-bad-color);
+}
+
+.correct-answer {
+  border-bottom-color: var(--symbol-container-great-outline-color);
+  background-color: var(--symbol-container-great-color);
 }
